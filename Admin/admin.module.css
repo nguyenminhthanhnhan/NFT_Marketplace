@@ -1,0 +1,461 @@
+ /* {
+    margin: 0;
+    padding: 0;
+    background-color: #1d2634;
+    color: #9e9ea4;
+    font-family: 'Montserrat', sans-serif;
+} */
+ .icon {
+     vertical-align: middle;
+     line-height: 1px;
+     font-size: 20px;
+ }
+
+ .icon_header {
+     vertical-align: middle;
+     line-height: 1px;
+     font-size: 26px;
+ }
+
+ .icon,
+ .icon_header {
+     margin-right: 5px;
+ }
+
+ .close_icon {
+     color: red;
+     margin-left: 30px;
+     margin-top: 10px;
+     cursor: pointer;
+ }
+
+ .gridContainer {
+     display: grid;
+     grid-template-columns: 260px 1fr 1fr 1fr;
+     grid-template-rows: 0.2fr 3fr;
+     grid-template-areas:
+         'sidebar header header header'
+         'sidebar main main main';
+     height: 100vh;
+ }
+
+ /* Header  */
+ .header {
+     grid-area: header;
+     height: 60px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 30px 0 30px;
+     box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+ }
+
+ .menuIcon {
+     display: none;
+ }
+
+ /* End Header  */
+
+ /* Sidebar  */
+ #sidebar {
+     grid-area: sidebar;
+     height: 100%;
+     background-color: #263043;
+     overflow-y: auto;
+     transition: all 0.5s;
+     -webkit-transition: all 0.5s;
+ }
+
+ .sidebarTitle {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 15px 30px 0px 30px;
+     margin-bottom: 30px;
+ }
+
+ .sidebarTitle>span {
+     display: none;
+ }
+
+ .sidebarBrand {
+     margin-top: 15px;
+     font-size: 20px;
+     font-weight: 700;
+ }
+
+ .sidebarList {
+     padding: 0;
+     list-style-type: none;
+ }
+
+ .sidebarListItem {
+     padding: 20px 20px 20px 20px;
+     font-size: 18px;
+ }
+
+ .sidebarListItem:hover {
+     background-color: rgba(255, 255, 255, 0.2);
+     cursor: pointer;
+ }
+
+ .sidebarListItem>a {
+     text-decoration: none;
+     color: #9e9ea4;
+ }
+
+ .sidebarResponsive {
+     display: inline !important;
+     position: absolute;
+     /*
+    we want the z-index of the sidebar higher so that
+    the charts are not showing over the sidebar 
+    on small screens
+  */
+     z-index: 12 !important;
+ }
+
+ /* End Sidebar  */
+
+
+ /* Main  */
+ .mainContainer {
+     grid-area: main;
+     overflow-y: auto;
+     padding: 20px 20px;
+     color: rgba(255, 255, 255, 0.95);
+ }
+
+ .mainTitle {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .mainCards {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     gap: 20px;
+     margin: 15px 0;
+ }
+
+ .card {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     padding: 8px 15px;
+     border-radius: 5px;
+ }
+
+ .card:first-child {
+     background-color: #2962ff;
+ }
+
+ .card:nth-child(2) {
+     background-color: #ff6d00;
+ }
+
+ .card:nth-child(3) {
+     background-color: #2e7d32;
+ }
+
+ .card:nth-child(4) {
+     background-color: #d50000;
+ }
+
+ .cardInner {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .cardInner>.card_icon {
+     font-size: 25px;
+ }
+
+ .charts {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 20px;
+     margin-top: 60px;
+     height: 300px;
+ }
+
+ /* End Main  */
+
+
+ /* Medium <= 992px */
+
+ @media screen and (max-width: 992px) {
+     .gridContainer {
+         grid-template-columns: 1fr;
+         grid-template-rows: 0.2fr 3fr;
+         grid-template-areas:
+             'header'
+             'main';
+     }
+
+     #sidebar {
+         display: none;
+     }
+
+     .menuIcon {
+         display: inline;
+     }
+
+     .sidebarTitle>span {
+         display: inline;
+     }
+ }
+
+ /* Small <= 768px */
+
+ @media screen and (max-width: 768px) {
+     .mainCards {
+         grid-template-columns: 1fr;
+         gap: 10px;
+         margin-bottom: 0;
+     }
+
+     .charts {
+         grid-template-columns: 1fr;
+         margin-top: 30px;
+     }
+ }
+
+ /* Extra Small <= 576px */
+
+ @media screen and (max-width: 576px) {
+     .hederLeft {
+         display: none;
+     }
+ }
+
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+ /*  */
+
+ .filter {
+     padding: 2rem 0;
+     width: 100%;
+ }
+
+ .filter_box {
+     width: 80%;
+     margin: 0 auto;
+
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding-bottom: 2rem;
+ }
+
+ .filter_box_left {
+     display: flex;
+     gap: 2rem;
+ }
+
+ .filter_box_left button {
+     border: none;
+     outline: none;
+     padding: 1rem 1.5rem;
+     border-radius: 2rem;
+     border: 1px solid var(--main-bg-color);
+     transition: all .3s ease-in;
+     font-size: 1.3rem;
+     cursor: pointer;
+     background-color: var(--main-bg-color);
+     /* background-color: white; */
+     /* color: white; */
+ }
+
+ .filter_box_left button:hover {
+     border: 1px solid var(--icons-color);
+     color: var(--icons-color);
+     box-shadow: var(--box-shadow);
+ }
+
+ .filter_box_right_box {
+     border: 1px solid var(--icons-color);
+     padding: 1rem 2rem;
+     border-radius: 2rem;
+     color: var(--icons-color);
+     box-shadow: var(--box-shadow);
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+ }
+
+ .filter_box_items {
+     width: 80%;
+     margin: 0 auto;
+     display: flex;
+     padding: 2rem 0;
+     border-top: 1px solid var(--icons-light-color);
+ }
+
+ .filter_box_items_box {
+     padding: 1rem;
+ }
+
+ .filter_box_items_box_item {
+     background-color: var(--icons-color);
+     padding: .5rem 1rem;
+     border-radius: 2rem;
+     /* color: var(--main-bg-color); */
+     color: white;
+     cursor: pointer;
+
+     display: flex;
+     align-items: center;
+     gap: .5rem;
+ }
+
+ .filter_box_items_box_item_trans {
+     border: 1px solid var(--icons-color);
+     color: var(--icons-color);
+     /* color: white; */
+     padding: .5rem 1rem;
+     border-radius: 2rem;
+     cursor: pointer;
+
+     display: flex;
+     align-items: center;
+     gap: .5rem;
+ }
+
+
+
+ @media screen and (min-device-width: 320px) and (max-device-width: 375px) {
+     .filter_box {
+         width: 90%;
+         display: grid;
+         gap: 4rem;
+     }
+
+     .filter_box_left {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: .5rem;
+     }
+
+     .filter_box_left button {
+         padding: .2rem;
+     }
+
+     .filter_box_items {
+         width: 90%;
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .filter_box_right_box {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 4rem;
+         padding-inline: 2rem;
+     }
+
+     .filter_box_items_box_item {
+         justify-content: space-between;
+     }
+
+     .filter_box_items_box_item_trans {
+         justify-content: space-between;
+     }
+
+ }
+
+ @media screen and (min-device-width: 377px) and (max-device-width: 425px) {
+     .filter_box {
+         display: grid;
+         gap: 4rem;
+         width: 90%;
+     }
+
+     .filter_box_left {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+     }
+
+     .filter_box_left button {
+         padding: 1rem;
+     }
+
+     .filter_box_items {
+         display: grid;
+         width: 90%;
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .filter_box_right_box {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 4rem;
+         padding-inline: 2rem;
+     }
+
+     .filter_box_items_box_item {
+         justify-content: space-between;
+     }
+
+     .filter_box_items_box_item_trans {
+         justify-content: space-between;
+     }
+
+ }
+
+ @media screen and (min-device-width: 427px) and (max-device-width: 786px) {
+     .filter_box {
+         display: grid;
+         gap: 4rem;
+         width: 90%;
+     }
+
+     .filter_box_left {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+     }
+
+     .filter_box_left button {
+         padding: 1rem;
+     }
+
+     .filter_box_items {
+         display: grid;
+         width: 90%;
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .filter_box_right_box {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 4rem;
+         padding-inline: 2rem;
+     }
+
+     .filter_box_items_box_item {
+         justify-content: space-between;
+     }
+
+     .filter_box_items_box_item_trans {
+         justify-content: space-between;
+     }
+
+ }
